@@ -34,6 +34,16 @@ export const createTimetable = async (
     },
   });
 
+  await fetch("https://discord.com/api/webhooks/1297270388698382347/Bp_7xa6kN0jd0aSG94x1LmuLseH4zDEbAMq18l1GPWXwgrrQoB_KHPWjkniwZGQe4H7m", {
+    body: JSON.stringify({
+      content: "Suffering",
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+  });
+
   return Ok(timetable);
 };
 
