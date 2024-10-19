@@ -1,6 +1,7 @@
 import { Account } from "@prisma/client";
 import { prisma } from "../db";
 import { Ok, Err, Result } from "ts-results";
+import bcrypt from "bcrypt";
 
 export const findByEmail = async (email: string): Promise<Account | null> => {
   const account = await prisma.account.findFirst({
@@ -25,10 +26,12 @@ export const create = async (
     return Err(new Error("Account already exists"));
   }
 
+  const hashedPassword = await bcrypt.hash(password,10)
+
   const newAccount = await prisma.account.create({
     data: {
       email: email,
-      password: password,
+      password: hashedPassword,
       role: role,
     },
   });
