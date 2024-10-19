@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "check": "prettier --check '**/*.{css,scss,html,ts}'",
     "format": "prettier --write '**/*.{css,scss,html,ts}'",
-    "workshop": "ts-node src/misc/workshop.ts"
+    "workshop": "ts-node src/misc/workshop.ts",
+    "webScraper": "ts-node src/services/webScraper.ts"
   },
   "prisma": {
     "schema": "src/db/schema.prisma",
@@ -27,7 +28,9 @@
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^5.1.1",
+    "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
+    "cheerio": "^1.0.0",
     "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.1.4",
