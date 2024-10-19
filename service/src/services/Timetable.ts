@@ -2,6 +2,7 @@ import { Timetable } from "@prisma/client";
 import { prisma } from "../db";
 import { Result, Ok, Err } from "ts-results";
 import { AccountService } from ".";
+import { time } from "console";
 
 export const createTimetable = async (
   email: string,
@@ -32,7 +33,7 @@ export const createTimetable = async (
         })),
       },
     },
-  });
+  }); 
 
   return Ok(timetable);
 };
