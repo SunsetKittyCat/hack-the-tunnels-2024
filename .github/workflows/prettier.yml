@@ -1,0 +1,20 @@
+name: Prettier Pull Request
+on: [pull-request]
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install modules
+        run: |
+          cd ${{ github.workspace }}/client
+          npm install
+          cd ${{ github.workspace }}/service
+          npm install
+      - name: Run Prettier
+        run: |
+          cd ${{ github.workspace }}/client
+          npm run check
+          cd ${{ github.workspace }}/service
+          npm run check
