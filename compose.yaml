@@ -1,0 +1,19 @@
+services:
+  client:
+    build:
+      context: client
+      dockerfile: dockerfile
+    volumes:
+      - type: bind 
+        source: ./client
+        target: /client
+    network_mode: "host"
+  service:
+    build:
+      context: service
+      dockerfile: dockerfile
+    volumes:
+      - type: bind 
+        source: ./service
+        target: /service
+    network_mode: "host"

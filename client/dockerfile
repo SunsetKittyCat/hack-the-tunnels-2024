@@ -1,0 +1,6 @@
+FROM node:latest
+
+WORKDIR /client
+EXPOSE 5173
+
+CMD ["bash", "-c", "echo -e \"127.0.0.1\\tlocalhost\\tlocalhost\" >> /etc/hosts; npm run dev"]
